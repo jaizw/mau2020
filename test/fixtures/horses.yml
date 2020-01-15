@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  netkeiba_id: MyString
+  name: MyString
+  sex: 1
+  sire: MyString
+  broodmare_sire: MyString
+
+two:
+  netkeiba_id: MyString
+  name: MyString
+  sex: 1
+  sire: MyString
+  broodmare_sire: MyString

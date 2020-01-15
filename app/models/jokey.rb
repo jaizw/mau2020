@@ -1,0 +1,2 @@
+class Jokey < ApplicationRecord
+end
