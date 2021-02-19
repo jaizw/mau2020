@@ -1,6 +1,5 @@
 # コピペでOK, app_nameもそのままでOK
-# 19.01.20現在最新安定版のイメージを取得
-FROM ruby:2.5
+FROM ruby:2.7
 
 # 必要なパッケージのインストール（基本的に必要になってくるものだと思うので削らないこと）
 RUN apt-get update -qq && \
@@ -19,5 +18,6 @@ ADD ./Gemfile $APP_ROOT/Gemfile
 ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
 
 # Gemfileのbundle install
+RUN bundle config build.nokogiri --use-system-libraries
 RUN bundle install
 ADD . $APP_ROOT
