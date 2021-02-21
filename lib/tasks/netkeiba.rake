@@ -11,15 +11,24 @@ namespace :netkeiba do
       f.read
     end
 
+    umabashira = []
     doc = Nokogiri::HTML.parse(html)
     doc.css('.HorseList').each do |horse_list|
-      unless horse_list.at_css('.Waku').nil?
+      if horse_list.at_css('.Waku').nil?
+        next
+      else
         umaban = horse_list.at_css('.Waku').content
       end
 
-      horse_list.css('.Data06').each do |race_data|
-        puts race_data
+      race_data = []
+      horse_list.css('.Data06').each do |data|
+        contents = data.content.gsub(")","(").split('(')
+        race_data.push(contents[0].strip) unless contents.nil?
       end
+      uma_hash = {umaban => race_data}
+      umabashira.push(uma_hash)
     end
+
+    puts umabashira
   end
 end
