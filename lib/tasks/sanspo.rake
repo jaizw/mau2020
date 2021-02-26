@@ -4,16 +4,20 @@ namespace :sanspo do
 
   task :get_umabashira, [:race_id] => :environment do |task, args|
     url = 'https://deep.race.sanspo.com/race/' + args[:race_id] + '/'
-
+    
     agent = Mechanize.new
     agent.user_agent_alias = 'Windows Mozilla'
-    agent.get(url) do |page|
-      doc = page.form_with(name: 'site_login') do |form|
-        form.userName = 'ログインID'
-        form.password = 'パスワード'
-      end.submit
+    
+    page = agent.get(url)
+    form = page.forms[0]
 
-      doc = Nokogiri::HTML(doc.content.toutf8)
-    end
+    puts form.to_yaml
+
+    form.field_with(name: 'userName').value = ''
+    form.field_with(name: 'password').value = ''
+    form.field_with(name: 'page').value = ''
+    
+    logined_page = agent.submit(form)
+    puts logined_page.content.toutf8
   end
 end

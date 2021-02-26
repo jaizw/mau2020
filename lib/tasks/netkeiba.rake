@@ -20,6 +20,8 @@ namespace :netkeiba do
         umaban = horse_list.at_css('.Waku').content
       end
 
+      jockey = horse_list.at_css('.Jockey a').content.toutf8
+
       race_data = []
       horse_list.css('.Data06').each do |data|
         contents = data.content.gsub(")","(").split('(')
@@ -29,6 +31,6 @@ namespace :netkeiba do
       umabashira.push(uma_hash)
     end
 
-    puts umabashira
+    #puts umabashira
   end
 end
