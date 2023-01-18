@@ -126,14 +126,14 @@ GEM
     net-http-persistent (4.0.1)
       connection_pool (~> 2.2)
     nio4r (2.5.5)
-    nokogiri (1.11.1-x86_64-linux)
+    nokogiri (1.14.0-x86_64-linux)
       racc (~> 1.4)
     ntlm-http (0.1.1)
     open-uri (0.1.0)
     public_suffix (4.0.6)
     puma (3.12.6)
-    racc (1.5.2)
-    rack (2.2.3)
+    racc (1.6.2)
+    rack (2.2.6.2)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.4.5)
@@ -219,7 +219,7 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
-  ruby
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
